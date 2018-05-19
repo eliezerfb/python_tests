@@ -2,11 +2,6 @@ import twitter
 import json
 
 
-# Função auxiliar para imprimir o resultado
-def print_status(status_list):
-    for status in status_list:
-        print(status.user.name, ':', status.text+'\n')
-
 with open('tokens.json') as f:
     data = json.load(f)
 
@@ -15,6 +10,13 @@ api = twitter.Api(**data)
 
 # Verifica se as credenciais estão OK
 print(api.VerifyCredentials())
+
+
+# Função auxiliar para imprimir o resultado
+def print_status(status_list):
+    for status in status_list:
+        print(status.user.name, ':', status.text+'\n')
+
 
 # Busca na timeline de um usuário
 status_list = api.GetUserTimeline(screen_name='RosieDaSerenata')

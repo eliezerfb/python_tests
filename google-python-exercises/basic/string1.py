@@ -24,8 +24,12 @@
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
 def donuts(count):
-    # +++your code here+++
-    return
+    if count >= 10:
+        n_donuts = 'many'
+    else:
+        n_donuts = count
+        
+    return f'Number of donuts: {n_donuts}'
 
 
 # B. both_ends

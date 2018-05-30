@@ -29,7 +29,7 @@ def donuts(count):
     else:
         n_donuts = count
 
-    return 'Number of donuts: %s' % n_donuts
+    return f'Number of donuts: {n_donuts}'
 
 
 # B. both_ends

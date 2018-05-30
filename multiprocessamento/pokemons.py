@@ -5,6 +5,8 @@
   Primeira etapa do problema.
 
   Fazer o download dos 100 primeiros pokemons da pokeapi
+
+  Sincrono levou 2m e 40s
 """
 from contextlib import contextmanager
 from datetime import datetime

@@ -38,7 +38,8 @@ print_words() and print_top().
 """
 
 import sys
-
+import re
+from operator import itemgetter
 
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
@@ -46,7 +47,28 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
-###
+def count_words(filename):
+    dict_words = {}
+    with open(filename, 'r') as f:
+        text = f.read().lower()
+        all_words = re.findall("[a-zA-Z_]+", text)
+        unique_words = set(all_words)
+        for word in unique_words:
+            dict_words[word] = len([w for w in all_words if w == word])
+        return dict_words
+
+
+def print_words(filename):
+    dict_words = count_words(filename)
+    for key, value in dict_words.items():
+        print(key, '=', value)
+
+
+def print_top(filename):
+    dict_words = count_words(filename)
+    words = sorted(dict_words.items(), key=itemgetter(1), reverse=True)
+    for word in words:
+        print(word[0],'=',word[1])
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.

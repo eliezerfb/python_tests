@@ -44,17 +44,39 @@ columns, so the output looks better.
 import random
 import sys
 
+def insert_or_update(d, key, value):
+    if key in d:
+        d[key].append(value)
+    else:
+        d[key] = [value]
 
 def mimic_dict(filename):
-  """Returns mimic dict mapping each word to list of words which follow it."""
-  # +++your code here+++
-  return
+    """Returns mimic dict mapping each word to list of words which follow it."""
+    mimic = {}
+    with open(filename, 'r') as f:
+        words = f.read().lower().split()
+        words = [''] + words
+        for i, word in enumerate(words):
+            if i < len(words)-1:
+                insert_or_update(mimic, word, words[i+1])
+        return mimic
 
 
 def print_mimic(mimic_dict, word):
-  """Given mimic dict and start word, prints 200 random words."""
-  # +++your code here+++
-  return
+    """Given mimic dict and start word, prints 200 random words."""
+    text = []
+    phrase = []
+    for i in range(201):
+        if word not in mimic_dict:
+           word = ''
+        word = random.choice(mimic_dict[word])
+        phrase.append(word)
+        if len(phrase) >= 71 or i == 200:
+            phrase.append('.\n')
+            text.append(' '.join(phrase))
+            phrase = []
+
+    print(' '.join(text))
 
 
 # Provided main(), calls mimic_dict() and mimic()
@@ -66,6 +88,8 @@ def main():
   dict = mimic_dict(sys.argv[1])
   print_mimic(dict, '')
 
+  # TODO: Melhorar o texto final, remover espaços desnecessários
+  # e verificar letras maiusculas após pontuação
 
 if __name__ == '__main__':
   main()

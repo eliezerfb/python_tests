@@ -71,7 +71,7 @@ def print_mimic(mimic_dict, word):
            word = ''
         word = random.choice(mimic_dict[word])
         phrase.append(word)
-        if len(phrase) >= 71 or i == 200:
+        if len(phrase) >= 70 or i == 200:
             phrase.append('.\n')
             text.append(' '.join(phrase))
             phrase = []

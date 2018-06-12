@@ -16,14 +16,6 @@ multiple_of = lambda base, num: num % base == 0
 multiple_of_3 = partial(multiple_of, 3)
 multiple_of_5 = partial(multiple_of, 5)
 
-'''def multiple_of_5(num):
-    return multiple_of(5, num)
-
-
-def multiple_of_3(num):
-    return multiple_of(3, num)
-'''
-
 def robot(pos):
     say = str(pos)
     if multiple_of_3(pos) and multiple_of_5(pos):
@@ -35,7 +27,6 @@ def robot(pos):
 
     return say
 
-    #return str(pos)
 
 if __name__ == '__main__':
     assert robot(1) == '1'

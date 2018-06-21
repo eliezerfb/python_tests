@@ -13,7 +13,6 @@ Deve-se considerar que há:
 cédulas de R$100,00, R$50,00, R$10,00, R$5,00 e R$1,00;
 moedas de R$0,50, R$0,10, R$0,05 e R$0,01.
 """
-from decimal import *
 
 
 def calcula_troco(valor, recebido):
@@ -26,7 +25,3 @@ def calcula_troco(valor, recebido):
         troco.append(disponiveis[-1])
 
     return troco
-
-
-if __name__ == '__main__':
-    unittest.main()

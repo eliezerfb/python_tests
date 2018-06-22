@@ -1,3 +1,3 @@
-"# python_tests" 
+# Python - Testes e Exercícios
 
-Repositório com diversos testes utilizando Python.
+Repositório com diversos testes e exercícios utilizando Python.

@@ -77,7 +77,7 @@ def find_phone(letras):
 
 assert find_phone('1-HOME-SWEET-HOME') == '1-4663-79338-4663'
 assert find_phone('MY-MISERABLE-JOB') == '69-647372253-562'
-assert find_phone('1800COMPUTE') == '18002667883'
+assert find_phone('1-800-COMPUTE') == '1-800-2667883'
 
 frase = 'The quick brown fox jumps over the lazy dog'
 print(find_phone(frase))

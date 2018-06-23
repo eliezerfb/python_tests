@@ -49,32 +49,21 @@ Já em português,
 
 """
 
+def get_number_from_word(word):
+    conversion = (('ABC', '2'), ('DEF', '3'), ('GHI', '4'), ('JKL', '5'),
+                  ('MNO', '6'), ('PQRS', '7'), ('TUV', '8'), ('WXYZ', '9'))
+    number = [c[1] for c in conversion if word in c[0]]
+    return number[0] if len(number) == 1 else word
 
-def find_phone(letras):
-    letras = letras.upper().replace(' ', '-')
-    conversao = (('ABC', '2'),
-                 ('DEF', '3'),
-                 ('GHI', '4'),
-                 ('JKL', '5'),
-                 ('MNO', '6'),
-                 ('PQRS', '7'),
-                 ('TUV', '8'),
-                 ('WXYZ', '9'))
 
-    numeros = []
+def find_phone(words):
+    words = words.upper().replace(' ', '-')
+    return ''.join([get_number_from_word(w) for w in words])
 
-    for l in letras:
-        if l == '-':
-            numeros.append(l)
-        elif l in list(map(str, range(0,11))):
-            numeros.append(l)
-        else:
-            for c in conversao:
-                if l in c[0]:
-                    numeros.append(c[1])
 
-    return ''.join(numeros)
-
+assert get_number_from_word('-') == '-'
+assert get_number_from_word('x') == 'x'
+assert get_number_from_word('E') == '3'
 assert find_phone('1-HOME-SWEET-HOME') == '1-4663-79338-4663'
 assert find_phone('MY-MISERABLE-JOB') == '69-647372253-562'
 assert find_phone('1-800-COMPUTE') == '1-800-2667883'

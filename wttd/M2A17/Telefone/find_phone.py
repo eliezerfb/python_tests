@@ -48,16 +48,16 @@ Já em português,
 "Um pequeno jabuti xereta viu dez cegonhas felizes"
 
 """
+CONVERSION = (('ABC', '2'), ('DEF', '3'), ('GHI', '4'), ('JKL', '5'),
+              ('MNO', '6'), ('PQRS', '7'), ('TUV', '8'), ('WXYZ', '9'))
 
 def get_number_from_word(word):
-    conversion = (('ABC', '2'), ('DEF', '3'), ('GHI', '4'), ('JKL', '5'),
-                  ('MNO', '6'), ('PQRS', '7'), ('TUV', '8'), ('WXYZ', '9'))
-    number = [c[1] for c in conversion if word in c[0]]
-    return number[0] if len(number) == 1 else word
+    #number = [c for c in CONVERSION if word in c[0]]
+    number = list(filter(lambda x: word in x[0], CONVERSION))
+    return number[0][1] if len(number) == 1 else word
 
 
 def find_phone(words):
-    words = words.upper().replace(' ', '-')
     return ''.join([get_number_from_word(w) for w in words])
 
 
@@ -67,9 +67,3 @@ assert get_number_from_word('E') == '3'
 assert find_phone('1-HOME-SWEET-HOME') == '1-4663-79338-4663'
 assert find_phone('MY-MISERABLE-JOB') == '69-647372253-562'
 assert find_phone('1-800-COMPUTE') == '1-800-2667883'
-
-frase = 'The quick brown fox jumps over the lazy dog'
-print(find_phone(frase))
-
-frase = 'Um pequeno jabuti xereta viu dez cegonhas felizes'
-print(find_phone(frase))

@@ -1,3 +1,7 @@
+# Automate Git with GitPython.
+# GitPython is a python library used to interact
+# with Git repositories. http://gitpython.readthedocs.org
+
 from datetime import datetime
 import git
 

@@ -18,6 +18,9 @@ def to_authorize():
     is_to_authorize = pyautogui.locateOnScreen('nao_autorizada.png',
                                                grayscale=False)
     if not is_to_authorize:
+        is_to_authorize = pyautogui.locateOnScreen('nao_autorizada_emissao.png',
+                                                   grayscale=False)
+    if not is_to_authorize:
         is_to_authorize = pyautogui.locateOnScreen('rejeitada.png',
                                                    grayscale=False)
 

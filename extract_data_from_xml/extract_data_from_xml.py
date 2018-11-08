@@ -36,7 +36,7 @@ def extract_ide(infNFe):
 def extract_pn(infNFe, type):
     emit = infNFe.find(f'ns:{type}', NS)
     ender_emit = emit.find(f'ns:ender{type.capitalize()}', NS)
-    tags = ('CNPJ', 'xNome', 'xFant', 'IE', 'email')
+    tags = ('CNPJ', 'CPF', 'xNome', 'xFant', 'IE', 'email')
     emit_dict = extract_value_from_tag(emit, tags)
     tags = ('xLgr', 'nro', 'xBairro', 'cMun', 'xMun', 'UF', 'CEP', 'cPais',
             'xPais', 'fone')

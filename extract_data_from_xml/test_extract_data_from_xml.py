@@ -25,6 +25,7 @@ class ExtractNFeDataTest(unittest.TestCase):
 
     def test_emit(self):
         expected = dict(CNPJ='88888888888888',
+                        CPF='',
                         xNome='NOME DO EMITENTE',
                         xFant='NOME FANTASIA DO EMITENTE',
                         IE='0858585858',
@@ -43,6 +44,7 @@ class ExtractNFeDataTest(unittest.TestCase):
 
     def test_dest(self):
         expected = dict(CNPJ='22222222222222',
+                        CPF='',
                         xNome='DESTINATARIO',
                         xFant='',
                         IE='777777777777',

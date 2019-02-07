@@ -1,3 +1,7 @@
 __pycache__
 .ipynb_checkpoints
+<<<<<<< HEAD
 .idea
+=======
+.env
+>>>>>>> 940bfa58e13c9b4c440b0f2da99673b9aa20329c
